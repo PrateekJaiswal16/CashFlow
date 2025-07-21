@@ -2,23 +2,34 @@
 
 ## 📖 About The Project
 
-CashFlow is a full-stack web application designed to give you a clear, intuitive, and powerful way to track and manage your financial activities. From a high-level monthly overview to detailed **interactive charts** 📊 and a filterable transaction history, this app provides all the tools needed to gain control over personal finances. The standout feature is the **AI-powered receipt scanner**, which uses Google's Gemini AI to automatically extract transaction details from an uploaded image, turning a tedious task into a seamless, two-click process.
+CashFlow is a full-stack web application designed to give you a clear, intuitive, and powerful way to track and manage your financial activities.
+
+From a high-level monthly overview to detailed **interactive charts** 📊 and a filterable transaction history, this app provides all the tools needed to gain control over personal finances.
+
+The standout feature is the **AI-powered OCR**, which uses the **Google Gemini 1.5 Flash model** to automatically extract transaction details from an uploaded receipt image, turning a tedious task into a seamless, two-click process.
 
 ---
 
 ## ✨ Key Features
 
 * 🔐 **Secure Authentication:** User registration and login handled by **Clerk** for robust security.
+
 * 🏠 **Interactive Dashboard:** A homepage with a high-level overview of monthly income, expenses, budget, and recent activity.
-* 🤖 **Receipt Scanning:** Upload a receipt image, and **Google Gemini AI** will automatically parse the details and pre-fill the transaction form.
+
+* 🤖 **Receipt Scanning:** Upload a receipt image, and the app's OCR will automatically parse the details and pre-fill the transaction form.
+
 * ✍️ **CRUD Functionality:** Full Create, Read, Update, and Delete capabilities for all transactions.
+
 * 📈 **Detailed Analysis Page:**
     * **Interactive Charts:** Bar and Pie charts from **Recharts** to visualize income vs. expenses and category breakdowns.
     * **Dynamic Time Filters:** View financial summaries for the last 7 days, 30 days, 3 months, or all time.
     * **Paginated Transaction Table:** An advanced, server-side paginated table that can handle thousands of transactions efficiently.
-    * **Server-Side Filtering & Sorting:** Filter transactions by type, category, or search term, and sort by date or amount, with all logic handled by the backend for performance.
+    * **Server-Side Filtering & Sorting:** Filter transactions by type, category, or search term, with all logic handled by the backend for performance.
+
 * 🧠 **Centralized State Management:** Uses **Zustand** on the frontend for a clean, fast, and scalable state management solution.
-* 🎨**Modern UI:** A beautiful and responsive user interface built with **Shadcn UI**.
+
+* 🎨 **Modern UI:** A beautiful and responsive user interface built with **Shadcn UI**.
+
 * 🔔 **Custom Toasts/Loaders:** Provides clear user feedback for all actions with custom-styled notifications.
 
 ---
@@ -40,7 +51,7 @@ CashFlow is a full-stack web application designed to give you a clear, intuitive
 * **Framework:** Express.js
 * **Database:** MongoDB with Mongoose
 * **Authentication:** Clerk
-* **OCR:** Google Gemini API
+* **OCR:** Google Gemini 2.5 Flash
 * **File Uploads:** Multer
 
 ---
@@ -216,25 +227,26 @@ All API endpoints are protected and require a valid Bearer Token for authenticat
 
 ## 📸 Screenshots
 
-<details>
-<summary><strong>Click to view more screenshots</strong></summary>
-
 ### Main Dashboard
+*A high-level overview of the user's current financial status.*
 ![Main Dashboard Overview](https://github.com/user-attachments/assets/d0e30761-8ddb-4798-aafa-c169bb1916ca)
 
 ### Analysis Page & Charts
+*Interactive charts with dynamic time-range filters for in-depth analysis.*
 ![Analysis Page with Charts and Time Ranges](https://github.com/user-attachments/assets/95891165-a86d-4977-ac94-598e65674527)
 
 ### Paginated & Filterable Table
+*A powerful, server-side paginated table to handle large amounts of transaction data efficiently.*
 ![Paginated Table with Backend Handling](https://github.com/user-attachments/assets/c2f05b68-23ec-45ff-9cff-263c45c49503)
 
-### Add/Edit with Receipt Scan
+### Add/Edit with AI Receipt Scan
+*The AI-powered dialog for adding or editing transactions by uploading a receipt.*
 ![Add/Edit Transaction Dialog with Uploading Receipt](https://github.com/user-attachments/assets/a1ef70a9-d883-4fb5-a3cc-99ce928f2d4b)
 
 ### Monthly Expense Breakdown
+*A clear pie chart visualizing spending by category.*
 ![Monthly Expense Breakdown Pie Chart](https://github.com/user-attachments/assets/d64da4be-71e8-4c9d-8490-1cbc684622b8)
 
-</details>
 ---
 
 ## 📜 License
