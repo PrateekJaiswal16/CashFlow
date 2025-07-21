@@ -1,7 +1,5 @@
 # CashFlow - A Full-Stack Personal Finance Tracker
 
-![CashFlow Dashboard](https://i.imgur.com/gK4YV2a.png) **Live Demo:** [**cashflow-finance-app.onrender.com**](https://cashflow-finance-app.onrender.com) ---
-
 ## 📖 About The Project
 
 CashFlow is a full-stack web application designed to give you a clear, intuitive, and powerful way to track and manage your financial activities. From a high-level monthly overview to detailed **interactive charts** 📊 and a filterable transaction history, this app provides all the tools needed to gain control over personal finances. The standout feature is the **AI-powered receipt scanner**, which uses Google's Gemini AI to automatically extract transaction details from an uploaded image, turning a tedious task into a seamless, two-click process.
@@ -11,8 +9,8 @@ CashFlow is a full-stack web application designed to give you a clear, intuitive
 ## ✨ Key Features
 
 * 🔐 **Secure Authentication:** User registration and login handled by **Clerk** for robust security.
-* 🏠**Interactive Dashboard:** A homepage with a high-level overview of monthly income, expenses, budget, and recent activity.
-* 🤖 **AI Receipt Scanning:** Upload a receipt image, and **Google Gemini AI** will automatically parse the details and pre-fill the transaction form.
+* 🏠 **Interactive Dashboard:** A homepage with a high-level overview of monthly income, expenses, budget, and recent activity.
+* 🤖 **Receipt Scanning:** Upload a receipt image, and **Google Gemini AI** will automatically parse the details and pre-fill the transaction form.
 * ✍️ **CRUD Functionality:** Full Create, Read, Update, and Delete capabilities for all transactions.
 * 📈 **Detailed Analysis Page:**
     * **Interactive Charts:** Bar and Pie charts from **Recharts** to visualize income vs. expenses and category breakdowns.
@@ -42,7 +40,7 @@ CashFlow is a full-stack web application designed to give you a clear, intuitive
 * **Framework:** Express.js
 * **Database:** MongoDB with Mongoose
 * **Authentication:** Clerk
-* **AI:** Google Gemini API
+* **OCR:** Google Gemini API
 * **File Uploads:** Multer
 
 ---
@@ -211,25 +209,32 @@ All API endpoints are protected and require a valid Bearer Token for authenticat
 | `POST` | `/api/receipts/scan`              | Scans an uploaded receipt image with AI and returns extracted JSON data.    |
 
 ---
+## 🎬 Video Demo
+
+[**Watch the video presentation here**](https://www.youtube.com) ---
+
 
 ## 📸 Screenshots
 
-<p align="center">
-  <img src="https://i.imgur.com/gK4YV2a.png" width="80%" alt="Dashboard Screenshot">
-  <br/>
-  <em>Main Dashboard Overview</em>
-</p>
-<p align="center">
-  <img src="https://i.imgur.com/9nFk9uG.png" width="80%" alt="Analysis Page Screenshot">
-  <br/>
-  <em>Financial Analysis Page with Charts and Paginated Table</em>
-</p>
-<p align="center">
-  <img src="https://i.imgur.com/7gH1QYl.png" width="40%" alt="Add Transaction Dialog">
-  <br/>
-  <em>Add/Edit Transaction Dialog with AI Scan Feature</em>
-</p>
+<details>
+<summary><strong>Click to view more screenshots</strong></summary>
 
+### Main Dashboard
+![Main Dashboard Overview](https://github.com/user-attachments/assets/d0e30761-8ddb-4798-aafa-c169bb1916ca)
+
+### Analysis Page & Charts
+![Analysis Page with Charts and Time Ranges](https://github.com/user-attachments/assets/95891165-a86d-4977-ac94-598e65674527)
+
+### Paginated & Filterable Table
+![Paginated Table with Backend Handling](https://github.com/user-attachments/assets/c2f05b68-23ec-45ff-9cff-263c45c49503)
+
+### Add/Edit with Receipt Scan
+![Add/Edit Transaction Dialog with Uploading Receipt](https://github.com/user-attachments/assets/a1ef70a9-d883-4fb5-a3cc-99ce928f2d4b)
+
+### Monthly Expense Breakdown
+![Monthly Expense Breakdown Pie Chart](https://github.com/user-attachments/assets/d64da4be-71e8-4c9d-8490-1cbc684622b8)
+
+</details>
 ---
 
 ## 📜 License
