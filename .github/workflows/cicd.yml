@@ -68,5 +68,5 @@ jobs:
 
       - name: Deploy Docker containers to EC2
         run: |
-            docker-compose pull --ignore-pull-failures --parallel
-            docker-compose up --force-recreate -d
+            docker compose pull --ignore-pull-failures --parallel
+            docker compose up --force-recreate -d
