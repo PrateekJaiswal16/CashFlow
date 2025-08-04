@@ -27,7 +27,8 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: ./CashFlow_backend
-        file: ./CashFlow_backend/Dockerfile
+
+        file: ./CashFlow_backend/DockerFile
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/cashflow_backend:latest
 

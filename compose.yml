@@ -4,7 +4,7 @@ services:
     image: prateekjaiswal16/cashflow_backend:latest
     build:
       context: ./CashFlow_backend
-      dockerfile: Dockerfile
+      dockerfile: DockerFile
     container_name: backend
     restart: always
     ports:
