@@ -50,15 +50,15 @@ jobs:
         uses: actions/checkout@v3
 
       - name: injecting github secrets as environment variables
-        run: |
-          echo "DOCKER_HUB_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }}" >> .env
-          echo "DOCKER_HUB_PASSWORD=${{ secrets.DOCKER_HUB_PASSWORD }}" >> .env
-          echo "KEY=${{ secrets.KEY }}" >> .env
-          echo "GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}" >> .env
-          echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" >> .env
-          echo "VITE_CLERK_PUBLISHABLE_KEY=${{ secrets.VITE_CLERK_PUBLISHABLE_KEY }}" >> .env
-          echo "PORT=${{ secrets.PORT }}" >> .env
-          echo "MODE=${{ secrets.MODE }}" >> .env
+        env:
+          DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+          DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          KEY: ${{ secrets.KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PORT: ${{ secrets.PORT }}
+          VITE_CLERK_PUBLISHABLE_KEY: ${{ secrets.VITE_CLERK_PUBLISHABLE_KEY }}
+          MODE: ${{ secrets.MODE }}
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
