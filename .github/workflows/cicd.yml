@@ -48,8 +48,25 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        
+      # - name: injecting github secrets as environment variables
+      #   env:
+      #     DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      #     DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      #     MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      #     KEY: ${{ secrets.KEY }}
+      #     GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      #     PORT: ${{ secrets.PORT }}
+      #     VITE_CLERK_PUBLISHABLE_KEY: ${{ secrets.VITE_CLERK_PUBLISHABLE_KEY }}
+      #     MODE: ${{ secrets.MODE }}
 
-      - name: injecting github secrets as environment variables
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Deploy Docker containers to EC2
         env:
           DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
           DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
@@ -59,14 +76,6 @@ jobs:
           PORT: ${{ secrets.PORT }}
           VITE_CLERK_PUBLISHABLE_KEY: ${{ secrets.VITE_CLERK_PUBLISHABLE_KEY }}
           MODE: ${{ secrets.MODE }}
-
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-
-      - name: Deploy Docker containers to EC2
         run: |
             docker compose pull --ignore-pull-failures --parallel
             docker compose up --force-recreate -d
