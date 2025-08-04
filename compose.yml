@@ -1,0 +1,33 @@
+services:
+  # Backend (Node.js + Express) service
+  backend:
+    image: prateekjaiswal16/cashflow_backend:latest
+    build:
+      context: ./CashFlow_backend
+      dockerfile: Dockerfile
+    container_name: backend
+    restart: always
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - KEY=${KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - PORT=${PORT}
+      
+
+  # Frontend (React) service
+  frontend:
+    image: prateekjaiswal16/cashflow_frontend:latest
+    build:
+      context: ./CashFlow_frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    restart: always
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_CLERK_PUBLISHABLE_KEY=${VITE_CLERK_PUBLISHABLE_KEY}
+      - MODE=${MODE}
+    depends_on:
+      - backend
