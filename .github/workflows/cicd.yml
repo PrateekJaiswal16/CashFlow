@@ -39,6 +39,8 @@ jobs:
         file: ./CashFlow_frontend/Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/cashflow_frontend:latest
+        build-args: |
+            VITE_CLERK_PUBLISHABLE_KEY=${{ secrets.VITE_CLERK_PUBLISHABLE_KEY }}
 
 
   deploy:

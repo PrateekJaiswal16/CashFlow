@@ -4,6 +4,13 @@ FROM node:24-alpine AS build
 # Set the working directory
 WORKDIR /usr/src/app
 
+# Declare the build-time argument
+ARG VITE_CLERK_PUBLISHABLE_KEY
+
+# Set it as an environment variable so the build process can access it.
+# Vite automatically picks up env variables prefixed with VITE_.
+ENV VITE_CLERK_PUBLISHABLE_KEY=$VITE_CLERK_PUBLISHABLE_KEY
+
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
