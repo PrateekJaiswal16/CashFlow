@@ -68,5 +68,5 @@ jobs:
           VITE_CLERK_PUBLISHABLE_KEY: ${{ secrets.VITE_CLERK_PUBLISHABLE_KEY }}
           MODE: ${{ secrets.MODE }}
         run: |
-            docker compose pull --parallel
+            docker compose pull --ignore-pull-failures --parallel
             docker compose up --force-recreate -d
