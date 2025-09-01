@@ -25,7 +25,7 @@ const LandingPage = () => {
           <div className="text-center">
             <div className="inline-flex items-center space-x-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 mb-8 border border-slate-200/50">
               <Star className="h-4 w-4 text-yellow-500" />
-              <span className="text-sm font-medium text-slate-700">Trusted by 10,000+ users</span>
+              <span className="text-sm font-medium text-slate-700">Trusted by 100+ users</span>
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
