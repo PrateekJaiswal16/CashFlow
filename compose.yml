@@ -1,4 +1,10 @@
 services:
+  redis:
+    image: redis:8.2.1-alpine
+    container_name: redis
+    ports: "6379:6379"
+    volumes: redis_data:/data
+
   # Backend (Node.js + Express) service
   backend:
     image: prateekjaiswal16/cashflow_backend:latest
@@ -9,11 +15,15 @@ services:
     restart: always
     ports:
       - "${PORT}:${PORT}"
+    depends_on:
+      - redis
     environment:
       - MONGODB_URI=${MONGODB_URI}
       - KEY=${KEY}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
       - PORT=${PORT}
+      - REDIS_PORT=${REDIS_PORT}
+      - REDIS_HOST=redis
       
 
   # Frontend (React) service
@@ -31,3 +41,6 @@ services:
       - MODE=${MODE}
     depends_on:
       - backend
+
+volumes:
+  redis_data:

@@ -1,5 +1,19 @@
 import Transaction from "../models/transaction.model.js";
-import { subDays } from 'date-fns'; // ✅ ADD THIS LINE
+import { subDays } from 'date-fns';
+import redisClient from "../lib/redisClient.js";
+
+// Helper function to clear all cache for a specific user
+const clearUserCache = async (userId) => {
+
+    console.log(userId);
+    if (!redisClient.isReady) return;
+    
+    const keys = await redisClient.keys(`cache:${userId}:*`);
+    if (keys.length > 0) {
+        console.log(`CACHE INVALIDATION: Deleting ${keys.length} keys for user ${userId}`);
+        await redisClient.del(keys);
+    }
+};
 
 export const createTransaction = async (req, res) => {
   try {
@@ -14,6 +28,10 @@ export const createTransaction = async (req, res) => {
       receiptUrl,
       userId: req.userId,
     });
+
+    console.log(req.userId)
+
+    await clearUserCache(req.userId);
 
     res.status(201).json({ message: "Transaction created", transaction });
   } catch (err) {
@@ -72,6 +90,8 @@ export const updateTransaction = async (req, res) => {
       return res.status(404).json({ message: "Transaction not found" });
     }
 
+    await clearUserCache(req.userId)
+
     res.json({ message: "Transaction updated", transaction: updated });
   } catch (err) {
     console.error(err);
@@ -89,6 +109,8 @@ export const deleteTransaction = async (req, res) => {
       return res.status(404).json({ message: "Transaction not found" });
     }
 
+    await clearUserCache(req.userId)
+    
     res.json({ message: "Transaction deleted" });
   } catch (err) {
     console.error(err);

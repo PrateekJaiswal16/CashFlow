@@ -1,5 +1,6 @@
 import express from "express";
 import { requireAuth } from "../middleware/auth.middleware.js";
+import { cacheMiddleware } from '../middleware/cache.middleware.js';
 import {
   createTransaction,
   getTransactions,
@@ -11,9 +12,9 @@ import {
 const router = express.Router();
 
 router.post("/", requireAuth, createTransaction);
-router.get("/", requireAuth, getTransactions);
+router.get("/", requireAuth, cacheMiddleware ,getTransactions);
 router.put("/:id", requireAuth, updateTransaction);
 router.delete("/:id", requireAuth, deleteTransaction);
-router.get("/summary", requireAuth, getTransactionSummary);
+router.get("/summary", requireAuth, cacheMiddleware  ,getTransactionSummary);
 
 export default router;
