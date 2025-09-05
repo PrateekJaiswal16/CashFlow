@@ -6,7 +6,7 @@ if (!redisUrl) {
     console.warn("REDIS_URL not found, caching will be disabled.");
 }
 
-const redisClient = redis.createClient({
+const redisClient = createClient({
   socket: {
     host: process.env.REDIS_HOST,
     port: process.env.REDIS_PORT
