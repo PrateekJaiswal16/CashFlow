@@ -67,6 +67,7 @@ jobs:
           PORT: ${{ secrets.PORT }}
           VITE_CLERK_PUBLISHABLE_KEY: ${{ secrets.VITE_CLERK_PUBLISHABLE_KEY }}
           MODE: ${{ secrets.MODE }}
+          REDIS_PORT: ${{secrets.REDIS_PORT}}
         run: |
             docker compose pull --ignore-pull-failures --parallel
             docker compose up --force-recreate -d
